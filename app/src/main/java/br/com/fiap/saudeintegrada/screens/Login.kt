@@ -1,7 +1,9 @@
 package br.com.fiap.saudeintegrada.screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
@@ -26,9 +28,15 @@ import androidx.compose.foundation.Image as Image
 import androidx.compose.foundation.layout.Column as Column
 import androidx.compose.material3.Button as Button
 
+
 @Composable
-fun Login (modifier: Modifier = Modifier) {
-    Column {
+fun Login () {
+    Column (
+        verticalArrangement = Arrangement.SpaceBetween,
+        modifier = Modifier
+                .fillMaxSize()
+                .background(Color(0xffFFFFFF)),
+    ) {
         Column (
             modifier = Modifier
                 .align(Alignment.CenterHorizontally),
@@ -43,7 +51,7 @@ fun Login (modifier: Modifier = Modifier) {
             )
         {
             Image(painter = painterResource(id = R.drawable.icone_saude)
-            , contentDescription = "icone do projeto saúde integrada", modifier = Modifier.size(width = 49.dp, height = 49.dp) )
+            , contentDescription = "ícone do projeto saúde integrada", modifier = Modifier.size(width = 49.dp, height = 49.dp) )
         }
         Column (
             modifier = Modifier
@@ -65,34 +73,41 @@ fun Login (modifier: Modifier = Modifier) {
         Row {
             Button(onClick = {}) {
                 Image(painter = painterResource(id = R.drawable.google),
-                    contentDescription = "ícone google", modifier= modifier.size(width = 26.dp, height = 26.5.dp))
+                    contentDescription = "ícone google", modifier= Modifier.size(width = 26.dp, height = 26.5.dp))
                 Text(text= "Google")
             }
             Button(onClick = {}) {
-//                Icon(imageVector = Icons.Default.Facebook, contentDescription = "icone facebook")
+//                Icon(imageVector = Icons.Default.Facebook, contentDescription = "ícone facebook")
                 Image(painter = painterResource(id = R.drawable.facebook),
-                    contentDescription = "ícone facebook", modifier= modifier.size(width = 26.dp, height = 26.5.dp))
+                    contentDescription = "ícone facebook", modifier= Modifier.size(width = 26.dp, height = 26.5.dp))
                 Text(text= "Facebook")
             }
         }
         Column (modifier = Modifier
             .fillMaxWidth()
         ) {
-            Text(text = "Não tem uma conta? Registre")
-            Text(text = "Precisa de ajuda? Centro de Ajuda")
+            Row {
+                Text(text = "Não tem uma conta?")
+                Text(text = "Registre")
+            }
+            Row {
+                Text(text = "Precisa de ajuda?")
+                Text(text = "Centro de Ajuda")
+            }
+
         }
         Row {
             Button(onClick = { /*TODO*/ }) {
-                Icon(imageVector = Icons.Rounded.Home, contentDescription = "icone home nav")
+                Icon(imageVector = Icons.Rounded.Home, contentDescription = "ícone home nav")
             }
             Button(onClick = { /*TODO*/ }) {
-                Icon(imageVector = Icons.Rounded.AccountCircle, contentDescription = "icone usuario nav")
+                Icon(imageVector = Icons.Rounded.AccountCircle, contentDescription = "ícone usuário nav")
             }
             Button(onClick = { /*TODO*/ }) {
-                Icon(imageVector = Icons.Rounded.CheckCircle, contentDescription = "icone verificado nav")
+                Icon(imageVector = Icons.Rounded.CheckCircle, contentDescription = "ícone verificado nav")
             }
             Button(onClick = { /*TODO*/ }) {
-                Icon(imageVector = Icons.AutoMirrored.Sharp.List, contentDescription = "icone list")
+                Icon(imageVector = Icons.AutoMirrored.Sharp.List, contentDescription = "ícone lista")
             }
         }
     }
@@ -106,7 +121,6 @@ fun LoginPreview() {
     Surface (
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color(0xFFFFFF))
     ) {
         Login()
     }

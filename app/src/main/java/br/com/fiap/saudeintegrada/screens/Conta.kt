@@ -2,15 +2,17 @@ package br.com.fiap.saudeintegrada.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.sharp.List
 import androidx.compose.material.icons.rounded.AccountCircle
 import androidx.compose.material.icons.rounded.CheckCircle
 import androidx.compose.material.icons.rounded.Home
-import androidx.compose.material.icons.sharp.List
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
@@ -27,9 +29,12 @@ import androidx.compose.ui.unit.dp
 import br.com.fiap.saudeintegrada.R
 
 @Composable
-fun Conta (modifier: Modifier = Modifier) {
-    Column (modifier = Modifier
-        .background(Color(0xFFFFFF)),
+fun Conta () {
+    Column (
+        verticalArrangement = Arrangement.SpaceBetween,
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color(0xffFFFFFF)),
     )
     {
         Column (
@@ -46,7 +51,7 @@ fun Conta (modifier: Modifier = Modifier) {
         )
         {
             Image(painter = painterResource(id = R.drawable.icone_saude)
-                , contentDescription = "icone do projeto saúde integrada", modifier = Modifier.size(width = 49.dp, height = 49.dp) )
+                , contentDescription = "ícone do projeto saúde integrada", modifier = Modifier.size(width = 49.dp, height = 49.dp) )
         }
         Row (
             modifier = Modifier
@@ -73,16 +78,16 @@ fun Conta (modifier: Modifier = Modifier) {
         }
         Row {
             Button(onClick = { /*TODO*/ }) {
-                Icon(imageVector = Icons.Rounded.Home, contentDescription = "icone home nav")
+                Icon(imageVector = Icons.Rounded.Home, contentDescription = "ícone home nav")
             }
             Button(onClick = { /*TODO*/ }) {
-                Icon(imageVector = Icons.Rounded.AccountCircle, contentDescription = "icone usuario nav")
+                Icon(imageVector = Icons.Rounded.AccountCircle, contentDescription = "ícone usuário nav")
             }
             Button(onClick = { /*TODO*/ }) {
-                Icon(imageVector = Icons.Rounded.CheckCircle, contentDescription = "icone verificado nav")
+                Icon(imageVector = Icons.Rounded.CheckCircle, contentDescription = "ícone verificado nav")
             }
             Button(onClick = { /*TODO*/ }) {
-                Icon(imageVector = Icons.Sharp.List, contentDescription = "icone list")
+                Icon(imageVector = Icons.AutoMirrored.Sharp.List, contentDescription = "ícone lista")
             }
         }
     }
@@ -95,7 +100,6 @@ fun ContaPreview() {
     Surface (
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color(0xFFFFFF))
     ) {
         Conta()
     }
