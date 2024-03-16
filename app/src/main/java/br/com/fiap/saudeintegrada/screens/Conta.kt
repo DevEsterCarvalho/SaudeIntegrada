@@ -3,6 +3,7 @@ package br.com.fiap.saudeintegrada.screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -46,12 +47,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import br.com.fiap.saudeintegrada.R
 import br.com.fiap.saudeintegrada.ui.theme.InterBold
 import br.com.fiap.saudeintegrada.ui.theme.InterRegular
 
+
 @Composable
-fun Conta () {
+fun Conta(navController: NavController?) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -276,7 +279,11 @@ fun Conta () {
                         color = (Color.White),
                         fontSize = 16.sp,
                         fontFamily = InterBold,
-                        textAlign = TextAlign.Center,)
+                        textAlign = TextAlign.Center,
+                    modifier = Modifier
+                        .clickable {
+                            navController?.navigate("Direcionamento")
+                        })
                 }
             }
         }
@@ -330,11 +337,11 @@ fun Conta () {
 
 @Preview(showSystemUi = true)
 @Composable
-fun ContaPreview() {
+fun ContaPreview(navController: NavController?) {
     Surface (
         modifier = Modifier
             .fillMaxWidth()
     ) {
-        Conta()
+        Conta(navController)
     }
 }

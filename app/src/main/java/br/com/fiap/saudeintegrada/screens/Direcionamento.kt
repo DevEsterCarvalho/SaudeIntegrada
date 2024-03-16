@@ -3,6 +3,7 @@ package br.com.fiap.saudeintegrada.screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -37,13 +38,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import br.com.fiap.saudeintegrada.R
 import br.com.fiap.saudeintegrada.ui.theme.InterBold
 import br.com.fiap.saudeintegrada.ui.theme.InterRegular
 
 
 @Composable
-fun Direcionamento () {
+fun Direcionamento(navController: NavController?) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -61,7 +63,7 @@ fun Direcionamento () {
             )
             {
                 Text(
-                    text = "Obrigado\nVocê será redirecionado\nem segundos...",
+                    text = "Obrigado!\nVocê será redirecionado\nem segundos...",
                     color = Color.Black,
                     fontSize = 20.sp,
                     fontFamily = InterRegular,
@@ -76,7 +78,7 @@ fun Direcionamento () {
                     colors = CardDefaults.cardColors(containerColor = Color.White)
                 )
                 {
-                    Image(painter = painterResource(id = R.drawable.logo_saude)
+                    Image(painter = painterResource(id = R.drawable.icone_saude)
                         , contentDescription = "ícone do projeto saúde integrada",
                         modifier = Modifier
                             .size(width = 120.dp, height = 120.dp)
@@ -93,17 +95,21 @@ fun Direcionamento () {
                 modifier = Modifier
                     .padding(start = 28.dp)
                     .align(Alignment.CenterHorizontally)
-                    
                 ) {
                     Text(
-                        text = "Clique aqui!",
+                        text = "Clique aqui",
                         color = (Color(0xff5861E2)),
                         fontSize = 16.sp,
                         fontFamily = InterBold,
-                        textAlign = TextAlign.Center
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier
+                            .clickable {
+                                navController?.navigate("BemVindo")
+                            }
                     )
                     Text(
-                        text = " Se você não for redirecionado corretamente",
+                        text = " Se você não for " +
+                                "redirecionado corretamente",
                         color = (Color(0xff161616)),
                         fontSize = 16.sp,
                         fontFamily = InterRegular,
@@ -181,13 +187,15 @@ fun Direcionamento () {
         }
     }
 }
+
+
 @Preview(showSystemUi = true)
 @Composable
-fun DirecionamentoPreview() {
+fun DirecionamentoPreview(navController: NavController?) {
     Surface (
         modifier = Modifier
             .fillMaxWidth()
     ) {
-        Direcionamento()
+        Direcionamento(navController)
     }
 }
