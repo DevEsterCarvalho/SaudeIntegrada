@@ -49,7 +49,7 @@ import br.com.fiap.saudeintegrada.ui.theme.InterRegular
 
 
 @Composable
-fun RecuperarConta(navController: NavHostController) {
+fun RecuperarConta(navController: NavHostController?) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -89,7 +89,7 @@ fun RecuperarConta(navController: NavHostController) {
                     colors = CardDefaults.cardColors(containerColor = Color.White)
                 )
                 {
-                    Image(painter = painterResource(id = R.drawable.icone_saude)
+                    Image(painter = painterResource(id = R.drawable.saude_icone)
                         , contentDescription = "ícone do projeto saúde integrada",
                         modifier = Modifier
                             .size(width = 49.dp, height = 49.dp)
@@ -291,7 +291,7 @@ fun RecuperarConta(navController: NavHostController) {
 }
 @Preview(showSystemUi = true)
 @Composable
-fun RecuperarContaPreview(navController: NavHostController) {
+fun RecuperarContaPreview(navController: NavHostController?) {
     Surface (
         modifier = Modifier
             .fillMaxWidth()

@@ -93,7 +93,7 @@ fun Conta(navController: NavController?) {
                         .align(Alignment.CenterHorizontally)
                 )
                 {
-                    Image(painter = painterResource(id = R.drawable.icone_saude)
+                    Image(painter = painterResource(id = R.drawable.saude_icone)
                         , contentDescription = "ícone do projeto saúde integrada",
                         modifier = Modifier
                             .size(width = 49.dp, height = 49.dp)

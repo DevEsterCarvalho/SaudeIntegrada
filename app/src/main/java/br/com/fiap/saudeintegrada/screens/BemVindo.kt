@@ -56,7 +56,7 @@ fun BemVindo(navController: NavController?) {
                 modifier = Modifier.align(Alignment.CenterHorizontally)
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.icone_saude),
+                    painter = painterResource(id = R.drawable.saude_icone),
                     contentDescription = "ícone do projeto saúde integrada",
                     modifier = Modifier.size(width = 91.dp, height = 91.dp),
                     contentScale = ContentScale.Fit

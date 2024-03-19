@@ -78,7 +78,7 @@ fun Direcionamento(navController: NavController?) {
                     colors = CardDefaults.cardColors(containerColor = Color.White)
                 )
                 {
-                    Image(painter = painterResource(id = R.drawable.icone_saude)
+                    Image(painter = painterResource(id = R.drawable.saude_icone)
                         , contentDescription = "ícone do projeto saúde integrada",
                         modifier = Modifier
                             .size(width = 120.dp, height = 120.dp)

@@ -88,7 +88,7 @@ fun Login(navController: NavController?) {
 
                 )
                 {
-                    Image(painter = painterResource(id = R.drawable.icone_saude)
+                    Image(painter = painterResource(id = R.drawable.saude_icone)
                         , contentDescription = "ícone do projeto saúde integrada",
                         modifier = Modifier
                             .size(width = 49.dp, height = 49.dp)
@@ -208,7 +208,7 @@ fun Login(navController: NavController?) {
                     contentPadding = PaddingValues(5.dp)
                 ){
                     Image(
-                        painter = painterResource(id = R.drawable.google),
+                        painter = painterResource(id = R.drawable.google_icone),
                         contentDescription = "ícone google",
                         modifier = Modifier
                             .size(width = 26.dp, height = 26.5.dp)
@@ -230,7 +230,7 @@ fun Login(navController: NavController?) {
                         shape = RoundedCornerShape(6.dp),
                         contentPadding = PaddingValues(5.dp)) {
                         Image(
-                            painter = painterResource(id = R.drawable.facebook),
+                            painter = painterResource(id = R.drawable.facebook_icone),
                             contentDescription = "ícone facebook",
                             modifier = Modifier.size(width = 26.dp, height = 26.5.dp)
                                 .clip(RoundedCornerShape(15.dp))
