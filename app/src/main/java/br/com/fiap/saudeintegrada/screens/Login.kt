@@ -4,6 +4,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -40,13 +41,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import br.com.fiap.saudeintegrada.R
 import br.com.fiap.saudeintegrada.ui.theme.InterBold
 import br.com.fiap.saudeintegrada.ui.theme.InterRegular
 
 
 @Composable
-fun Login () {
+fun Login(navController: NavController?) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -86,7 +88,7 @@ fun Login () {
 
                 )
                 {
-                    Image(painter = painterResource(id = R.drawable.icone_saude)
+                    Image(painter = painterResource(id = R.drawable.saude_icone)
                         , contentDescription = "ícone do projeto saúde integrada",
                         modifier = Modifier
                             .size(width = 49.dp, height = 49.dp)
@@ -131,6 +133,9 @@ fun Login () {
                             modifier = Modifier
                                 .padding(top = 10.dp, end = 15.dp)
                                 .fillMaxWidth()
+                                .clickable {
+                                    navController?.navigate("RecuperarConta")
+                            }
                         )
                     Spacer(modifier = Modifier.height(15.dp))
                         OutlinedTextField(value = "", onValueChange = {},
@@ -161,7 +166,7 @@ fun Login () {
                                     .fillMaxWidth()
                         )
                     Spacer(modifier = Modifier.height(20.dp))
-                        Button(onClick = {},
+                        Button(onClick = {navController?.navigate("Direcionamento")},
                             colors = ButtonDefaults.buttonColors(Color(0xff5861E2)),
                             shape = RoundedCornerShape(6.dp),
                             contentPadding = PaddingValues(5.dp),
@@ -203,7 +208,7 @@ fun Login () {
                     contentPadding = PaddingValues(5.dp)
                 ){
                     Image(
-                        painter = painterResource(id = R.drawable.google),
+                        painter = painterResource(id = R.drawable.google_icone),
                         contentDescription = "ícone google",
                         modifier = Modifier
                             .size(width = 26.dp, height = 26.5.dp)
@@ -225,7 +230,7 @@ fun Login () {
                         shape = RoundedCornerShape(6.dp),
                         contentPadding = PaddingValues(5.dp)) {
                         Image(
-                            painter = painterResource(id = R.drawable.facebook),
+                            painter = painterResource(id = R.drawable.facebook_icone),
                             contentDescription = "ícone facebook",
                             modifier = Modifier.size(width = 26.dp, height = 26.5.dp)
                                 .clip(RoundedCornerShape(15.dp))
@@ -254,11 +259,17 @@ fun Login () {
                         fontSize = 16.sp,
                         fontFamily = InterRegular,
                         textAlign = TextAlign.Center)
-                    Text(text = "Registre",
+                    Text(
+                        text = "Registre",
                         color = (Color(0xff5861E2)),
                         fontSize = 16.sp,
                         fontFamily = InterBold,
-                        textAlign = TextAlign.Center)
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier
+                            .clickable {
+                                navController?.navigate("Conta")
+                            }
+                    )
                 }
                 Row (
                     modifier= Modifier
@@ -323,13 +334,16 @@ fun Login () {
         }
     }
 }
+
+
+
 @Preview(showSystemUi = true)
 @Composable
-fun LoginPreview() {
+fun LoginPreview(navController: NavController?) {
     Surface (
         modifier = Modifier
             .fillMaxWidth()
     ) {
-        Login()
+        Login(navController)
     }
 }

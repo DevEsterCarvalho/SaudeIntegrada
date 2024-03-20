@@ -1,5 +1,6 @@
 package br.com.fiap.saudeintegrada.screens
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -34,13 +35,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import br.com.fiap.saudeintegrada.R
 import br.com.fiap.saudeintegrada.ui.theme.InterBold
 
 
-
 @Composable
-fun BemVindo() {
+fun BemVindo(navController: NavController?) {
     Box(
             modifier = Modifier
                 .fillMaxSize()
@@ -55,7 +56,7 @@ fun BemVindo() {
                 modifier = Modifier.align(Alignment.CenterHorizontally)
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.icone_saude),
+                    painter = painterResource(id = R.drawable.saude_icone),
                     contentDescription = "ícone do projeto saúde integrada",
                     modifier = Modifier.size(width = 91.dp, height = 91.dp),
                     contentScale = ContentScale.Fit
@@ -81,16 +82,23 @@ fun BemVindo() {
                     .fillMaxWidth()
                     .padding(bottom = 15.dp)
             )
-            Text(
-                text = "Toque na tela\npara continuar",
-                color = Color.Black,
-                fontSize = 20.sp,
-                fontFamily = InterBold,
-                textAlign = TextAlign.Center,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 15.dp)
-            )
+
+            Button(onClick = {navController?.navigate("Login")},
+                colors = ButtonDefaults.buttonColors(Color.Transparent),
+                border = BorderStroke(0.dp, Color.Transparent)
+            ) {
+                Text(
+                    text = "Toque na tela\npara continuar",
+                    color = Color.Black,
+                    fontSize = 20.sp,
+                    fontFamily = InterBold,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 15.dp)
+
+                )
+            }
         }
         Box (
             modifier = Modifier
@@ -109,8 +117,9 @@ fun BemVindo() {
                     colors = ButtonDefaults.buttonColors(Color(0xff5861E2)),
                     shape = RoundedCornerShape(6.dp),
                     contentPadding = PaddingValues(5.dp),
-                    modifier = Modifier .size(48.dp)
-                    .shadow(10.dp, shape = RoundedCornerShape(4.dp), clip = true)
+                    modifier = Modifier
+                        .size(48.dp)
+                        .shadow(10.dp, shape = RoundedCornerShape(4.dp), clip = true)
 
                 ) {
                     Icon(imageVector = Icons.Default.Home, contentDescription = "ícone home nav")
@@ -139,18 +148,13 @@ fun BemVindo() {
 }
 
 
-
-
-
-
-
 @Preview(showSystemUi = true)
 @Composable
-fun BemVindoPreview() {
+fun BemVindoPreview(navController: NavController?) {
     Surface (
         modifier = Modifier
             .fillMaxWidth()
     ) {
-        BemVindo()
+        BemVindo(navController)
     }
 }
